@@ -11,7 +11,6 @@ export type User = {
 
 export type Channel = {
     id: string;
-    pub_key: string;
     name: string;
     email: string;
     website: string;
@@ -21,15 +20,13 @@ export type Channel = {
 export type News  = {
     id: string;
     channel_id: string;
-    channel_pub_key: string;
-    news_pub_key: string;
     headline: string;
     content: string;
     published_on_blockchain: 'no' | 'yes';
     date: string;
 };
 
-export type Total_published_news = {
+export type PublishedNews = {
     month: string;
     total: number;
 };
@@ -43,7 +40,7 @@ export type LatestNews = {
 };
 
 // The database returns a number for amount, but we later format it to a string with the formatCurrency function
-export type LatestInvoiceRaw = Omit<LatestNews, 'headline'> & {
+export type LatestNewsRaw = {
     headline: string;
 };
 
@@ -74,9 +71,9 @@ export type FormattedChannelsTable = {
     name: string;
     email: string;
     image_url: string;
-    total_invoices: number;
-    total_pending: string;
-    total_paid: string;
+    total_all_news number;
+    total_published: string;
+    total_unpublished: string;
 };
 
 export type ChannelField = {

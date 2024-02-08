@@ -1,16 +1,16 @@
-import Form from '@/app/ui/invoices/edit-form';
-import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
-import { fetchInvoiceById, fetchCustomers } from '@/app/lib/data';
+import Form from '@/app/ui/all-news/edit-form';
+import Breadcrumbs from '@/app/ui/all-news/breadcrumbs';
+import { fetchNewsById, fetchChannels } from '@/app/lib/data';
 import { notFound } from 'next/navigation';
 
 export default async function Page({ params }: { params: { id: string } }) {
     const id = params.id;
-    const [invoice, customers] = await Promise.all([
-        fetchInvoiceById(id),
-        fetchCustomers(),
+    const [news, channels] = await Promise.all([
+        fetchNewsById(id),
+        fetchChannels(),
     ]);
 
-    if (!invoice) {
+    if (!news) {
         notFound();
     }
 
@@ -18,15 +18,15 @@ export default async function Page({ params }: { params: { id: string } }) {
         <main>
             <Breadcrumbs
                 breadcrumbs={[
-                    { label: 'Invoices', href: '/dashboard/invoices' },
+                    { label: 'Invoices', href: '/dashboard/all-news' },
                     {
-                        label: 'Edit Invoice',
-                        href: `/dashboard/invoices/${id}/edit`,
+                        label: 'Edit News',
+                        href: `/dashboard/all_news/${id}/edit`,
                         active: true,
                     },
                 ]}
             />
-            <Form invoice={invoice} customers={customers} />
+            <Form news={news} channels={channels} />
         </main>
     );
 }

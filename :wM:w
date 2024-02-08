@@ -8,7 +8,7 @@ import { redirect } from 'next/navigation';
 const FormSchema = z.object({
     id: z.string(),
     channelId: z.string(),
-    headline: z.string(),
+    headline: z.string(), 
     published_on_blockchain: z.enum(['no', 'yes']),
     date: z.string(),
 });
@@ -21,7 +21,7 @@ export async function createNews(formData: FormData) {
         channelId: formData.get('channelId'),
         headline: formData.get('headline'),
         published_on_blockchain: formData.get('published_on_blockchain'),
-    });
+    }); 
     //const amountInCents  = amount * 100;
     const date = new Date().toISOString().split('T')[0];
 
@@ -41,16 +41,13 @@ export async function createNews(formData: FormData) {
     redirect('/dashboard/all-news');
 }
 
+/*
 export async function updateNews(id: string, formData: FormData) {
     const { channelId, headline, published_on_blockchain } = UpdateNews.parse({
         channelId: formData.get('channelId'),
         headline: formData.get('headline'),
         published_on_blockchain: formData.get('published_on_blockchain'),
     });
-
-    console.log("channel id is ", channelId);
-    console.log("headline is ", headline);
-    console.log("published on blockhain is", published_on_blockchain);
 
 
     try {
@@ -60,13 +57,14 @@ export async function updateNews(id: string, formData: FormData) {
         WHERE id = ${id}
         `;
     } catch(error) {
-       return { message: 'Database Error: Failed to Update News.' };
+       return { message: 'Database Error: Failed to Update News.' }; 
     }
 
 
     revalidatePath('/dashboard/all-news');
     redirect('/dashboard/all-news');
 }
+*/
 
 export async function deleteNews(id: string) {
     // uncomment the below line to test error page
@@ -80,3 +78,6 @@ export async function deleteNews(id: string) {
     }
 }
 
+//ikigai, kaizen, pomodoro, hara hachi bu, shoshin, wabi sabi, kakeibo, Shinrin Yoku
+//ikphswks
+//ishkphkw
