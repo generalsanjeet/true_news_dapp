@@ -22,14 +22,19 @@ export async function createNews(formData: FormData) {
         headline: formData.get('headline'),
         published_on_blockchain: formData.get('published_on_blockchain'),
     });
-    //const amountInCents  = amount * 100;
     const date = new Date().toISOString().split('T')[0];
+    const content_sample_data = "this is content sample data";
+
+    console.log("channel id is ", channelId);
+    console.log("headline is ", headline);
+    console.log("published on blockhain is", published_on_blockchain);
 
     try {
         await sql`
-            INSERT INTO all_news (channel_id, headline, published_on_blockchain, date)
-            VALUES (${channelId}, ${headline}, ${published_on_blockchain}, ${date})
+            INSERT INTO all_news (channel_id, headline, content,  published_on_blockchain, date)
+            VALUES (${channelId}, ${headline}, ${content_sample_data}, ${published_on_blockchain}, ${date})
             `;
+        console.log("one row inserted");
     } catch (error) {
         return {
             message: 'Database Error: Failed to Create News.',
@@ -47,11 +52,6 @@ export async function updateNews(id: string, formData: FormData) {
         headline: formData.get('headline'),
         published_on_blockchain: formData.get('published_on_blockchain'),
     });
-
-    console.log("channel id is ", channelId);
-    console.log("headline is ", headline);
-    console.log("published on blockhain is", published_on_blockchain);
-
 
     try {
         await sql`
