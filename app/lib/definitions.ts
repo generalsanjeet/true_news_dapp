@@ -71,7 +71,7 @@ export type FormattedChannelsTable = {
     name: string;
     email: string;
     image_url: string;
-    total_all_news number;
+    total_all_news: number;
     total_published: string;
     total_unpublished: string;
 };
