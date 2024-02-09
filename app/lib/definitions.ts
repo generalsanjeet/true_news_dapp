@@ -41,7 +41,11 @@ export type LatestNews = {
 
 // The database returns a number for amount, but we later format it to a string with the formatCurrency function
 export type LatestNewsRaw = {
+    id: string;
     headline: string;
+    name: string;
+    image_url: string;
+    email: string;
 };
 
 export type AllNewsTable = {

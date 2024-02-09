@@ -6,7 +6,7 @@ import { fetchLatestAllNews } from '@/app/lib/data';
 
 export default async function LatestAllNews() {
   const latestAllNews = await fetchLatestAllNews();
-    //console.log("the latest all news is ", latestAllNews)
+  console.log("the latest all news is ", latestAllNews)
 
   return (
     <div className="flex w-full flex-col md:col-span-4">
