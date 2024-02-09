@@ -1,6 +1,5 @@
 import { sql } from '@vercel/postgres';
 import {
-    //CustomerField,
     ChannelField,
     ChannelsTableType,
     NewsForm,
@@ -9,7 +8,6 @@ import {
     User,
     PublishedNews,
 } from './definitions';
-//import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
 
 
