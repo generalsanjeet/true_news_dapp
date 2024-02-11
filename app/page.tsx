@@ -7,22 +7,21 @@ import Image from 'next/image';
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col p-6 ">
-      <div className="flex h-20 shrink-0 items-end rounded-lg  bg-gray-100 p-4 md:h-52 shadow-sm shadow-gray-400">
+    <main className="flex min-h-screen flex-col p-6">
+      <div className="flex h-20 shrink-0 items-end rounded-lg bg-stone-800  p-4 md:h-52 shadow-sm shadow-stone-950">
         <AcmeLogo /> 
       </div>
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
-        <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
-            <div className={styles.shape} />
-          <p className={`${lusitana.className} text-xl text-green-700 md:text-3xl md:leading-normal`}>
-               <strong>True News</strong> is  a common platform where<br></br> <br></br>
+        <div className="flex flex-col justify-center gap-6 rounded-lg px-6 py-10 md:w-2/5 md:px-20">
+          <p className={`${lusitana.className} text-xl text-white md:text-3xl md:leading-normal`}>
+               <strong className="text-yellow-500">True News</strong> is  a common platform where<br></br> <br></br>
                 1. You can publish news of  your own news channel on blockchain <br></br> 
       2. You can claim/buy/sell ownership of your news content by adding NFT <br></br>
                 3. News readers can find authentic news due to strict publishing rule by blockhain smart contract.<br></br>
           </p>
           <Link
             href="/dashboard"
-            className="flex items-center gap-5 self-start rounded-lg bg-orange-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
+            className="flex items-center gap-5 self-start rounded-lg bg-stone-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-stone-500 md:text-base"
           >
             <span>All Channels News</span> <ArrowRightIcon className="w-5 md:w-6" />
           </Link>
