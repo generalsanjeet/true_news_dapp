@@ -18,7 +18,7 @@ export function UpdateNews({ id }: { id: string }) {
     return (
         <Link
             href={`/dashboard/all-news/${id}/edit`}
-            className="rounded-md border p-2 hover:bg-gray-100"
+            className="rounded-md  p-2 bg-stone-950 text-yellow-500  hover:text-white"
         >
             <PencilIcon className="w-5" />
         </Link>
@@ -29,7 +29,7 @@ export function DeleteNews({ id }: { id: string }) {
     const deleteNewsWithId = deleteNews.bind(null, id);
     return (
         <form action={deleteNewsWithId}>
-            <button className="rounded-md border p-2 hover:bg-gray-100">
+            <button className="rounded-md  p-2  bg-stone-950 text-yellow-500 hover:text-white">
                 <span className="sr-only">Delete</span>
                 <TrashIcon className="w-5" />
             </button>

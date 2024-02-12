@@ -11,7 +11,7 @@ export default async function PublishedNewsChart() {
    const { yAxisLabels, topLabel } = generateYAxis(publishedNews);
 
    if (!publishedNews || publishedNews.length === 0) {
-     return <p className="mt-4 text-gray-400">No data available.</p>;
+     return <p className="mt-4 text-stone-300">No data available.</p>;
    }
 
   return (
@@ -23,7 +23,7 @@ export default async function PublishedNewsChart() {
        <div className="rounded-xl bg-stone-900 p-4">
         <div className="sm:grid-cols-13 mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-stone-700 p-4 md:gap-4">
           <div
-            className="mb-6 hidden flex-col justify-between text-sm text-gray-400 sm:flex"
+            className="mb-6 hidden flex-col justify-between text-sm text-white sm:flex"
             style={{ height: `${chartHeight}px` }}
           >
             {yAxisLabels.map((label) => (
