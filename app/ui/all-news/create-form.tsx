@@ -3,8 +3,8 @@ import Link from 'next/link';
 import {
   CheckIcon,
   ClockIcon,
-  CurrencyDollarIcon,
   UserCircleIcon,
+  NewspaperIcon,
 } from '@heroicons/react/24/outline';
 import { Button } from '@/app/ui/button';
 import {createNews} from '@/app/lib/actions';
@@ -12,10 +12,10 @@ import {createNews} from '@/app/lib/actions';
 export default function Form({ channels }: { channels: ChannelField[] }) {
   return (
     <form action={createNews}>
-      <div className="rounded-md bg-gray-50 p-4 md:p-6">
+      <div className="rounded-md bg-stone-800 p-4 md:p-6">
         {/* Channel Name */}
         <div className="mb-4">
-          <label htmlFor="customer" className="mb-2 block text-sm font-medium">
+          <label htmlFor="customer" className="mb-2 block text-sm font-medium text-amber-500">
             Choose channel
           </label>
           <div className="relative">
@@ -40,7 +40,7 @@ export default function Form({ channels }: { channels: ChannelField[] }) {
 
         {/* News headline */}
         <div className="mb-4">
-          <label htmlFor="headline" className="mb-2 block text-sm font-medium">
+          <label htmlFor="headline" className="mb-2 block text-sm font-medium text-amber-500">
               Write a headline
           </label>
           <div className="relative mt-2 rounded-md">
@@ -51,16 +51,16 @@ export default function Form({ channels }: { channels: ChannelField[] }) {
                 type="text"
                 step="0.01"
                 placeholder="Enter headline here"
-                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="peer block w-full rounded-md border border-stone-500 py-2 pl-10 text-sm outline-2 placeholder:text-stone-400 bg-stone-700"
               />
-              <CurrencyDollarIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+              <NewspaperIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-stone-200 peer-focus:text-stone-700" />
             </div>
           </div>
         </div>
 
         {/* News Published On Blockchain status */}
         <fieldset>
-          <legend className="mb-2 block text-sm font-medium">
+          <legend className="mb-2 block text-sm font-medium text-amber-500">
               Published on blockchain or not
           </legend>
           <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3">
