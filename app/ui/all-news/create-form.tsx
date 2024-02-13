@@ -100,8 +100,8 @@ export default function Form({ channels }: { channels: ChannelField[] }) {
       </div>
       <div className="mt-6 flex justify-end gap-4">
         <Link
-          href="/dashboard/invoices"
-          className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
+          href="/dashboard/all-news"
+          className="flex h-10 items-center rounded-lg bg-stone-500 px-4 text-sm font-medium text-white transition-colors hover:bg-stone-900"
         >
           Cancel
         </Link>
