@@ -15,14 +15,14 @@ export default function Form({ channels }: { channels: ChannelField[] }) {
       <div className="rounded-md bg-stone-800 p-4 md:p-6">
         {/* Channel Name */}
         <div className="mb-4">
-          <label htmlFor="customer" className="mb-2 block text-sm font-medium text-amber-500">
+          <label htmlFor="channel" className="mb-2 block text-sm font-medium text-amber-500">
             Choose channel
           </label>
           <div className="relative">
             <select
               id="channel"
               name="channelId"
-              className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              className="peer block w-full cursor-pointer rounded-md border border-stone-500 py-2 pl-10 text-sm outline-2 placeholder:text-stone-500 bg-stone-700  text-stone-400"
               defaultValue=""
             >
               <option value="" disabled>
@@ -34,7 +34,7 @@ export default function Form({ channels }: { channels: ChannelField[] }) {
                 </option>
               ))}
             </select>
-            <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
+            <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-stone-200" />
           </div>
         </div>
 
@@ -51,19 +51,18 @@ export default function Form({ channels }: { channels: ChannelField[] }) {
                 type="text"
                 step="0.01"
                 placeholder="Enter headline here"
-                className="peer block w-full rounded-md border border-stone-500 py-2 pl-10 text-sm outline-2 placeholder:text-stone-400 bg-stone-700"
+                className="peer block w-full rounded-md border border-stone-500 py-2 pl-10 text-sm outline-2 placeholder:text-stone-400 bg-stone-700 text-white"
               />
               <NewspaperIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-stone-200 peer-focus:text-stone-700" />
             </div>
           </div>
         </div>
 
-        {/* News Published On Blockchain status */}
         <fieldset>
           <legend className="mb-2 block text-sm font-medium text-amber-500">
               Published on blockchain or not
           </legend>
-          <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3">
+          <div className="rounded-md border border-stone-500 bg-stone-700 px-[14px] py-3">
             <div className="flex gap-4">
               <div className="flex items-center">
                 <input
@@ -71,7 +70,7 @@ export default function Form({ channels }: { channels: ChannelField[] }) {
                   name="published_on_blockchain"
                   type="radio"
                   value="no"
-                  className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
+                  className="h-4 w-4 cursor-pointer border-black-300 bg-stone-400 text-black-500 focus:ring-2"
                 />
                 <label
                   htmlFor="no"
