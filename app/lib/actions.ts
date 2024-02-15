@@ -50,16 +50,17 @@ export async function createNews(formData: FormData) {
 }
 
 export async function updateNews(id: string, formData: FormData) {
-    const { channelId, headline, published_on_blockchain } = UpdateNews.parse({
+    const { channelId, headline, content, published_on_blockchain } = UpdateNews.parse({
         channelId: formData.get('channelId'),
         headline: formData.get('headline'),
+        content: formData.get('content'),
         published_on_blockchain: formData.get('published_on_blockchain'),
     });
 
     try {
         await sql`
         UPDATE all_news
-        SET channel_id = ${channelId}, headline = ${headline}, published_on_blockchain = ${published_on_blockchain}
+        SET channel_id = ${channelId}, headline = ${headline}, content = ${content}, published_on_blockchain = ${published_on_blockchain}
         WHERE id = ${id}
         `;
     } catch(error) {
