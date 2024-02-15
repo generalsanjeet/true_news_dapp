@@ -1,18 +1,11 @@
-import Form from '@/app/ui/all-news/edit-form';
 import Breadcrumbs from '@/app/ui/all-news/breadcrumbs';
-import { fetchNewsById, fetchChannels } from '@/app/lib/data';
+//import { fetchNewsById, fetchChannels } from '@/app/lib/data';
 import { notFound } from 'next/navigation';
 
 export default async function Page({ params }: { params: { id: string } }) {
+    
     const id = params.id;
-    const [news, channels] = await Promise.all([
-        fetchNewsById(id),
-        fetchChannels(),
-    ]);
-
-    if (!news) {
-        notFound();
-    }
+    console.log("id is ",id);
 
     return (
         <main>
@@ -20,13 +13,15 @@ export default async function Page({ params }: { params: { id: string } }) {
                 breadcrumbs={[
                     { label: 'AllNews', href: '/dashboard/all-news' },
                     {
-                        label: 'Edit News',
-                        href: `/dashboard/all_news/${id}/edit`,
+                        label: 'Views News',
+                        href: `/dashboard/all_news/${id}/view`,
                         active: true,
                     },
                 ]}
             />
-            <Form news={news} channels={channels} />
+            <div className="h-auto  w-auto p-10 mx-auto  bg-stone-800 rounded-md shadow-md shadow-black">
+                <p className="text-white text-4xl">This page with id [${id}] is  under development.. will come soon</p> 
+            </div>
         </main>
     );
 }

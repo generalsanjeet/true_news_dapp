@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { UpdateNews, DeleteNews } from '@/app/ui/all-news/buttons';
+import { UpdateNews, DeleteNews, ViewsNews} from '@/app/ui/all-news/buttons';
 import PubOnBlock from '@/app/ui/all-news/pub-on-block';
 import {formatDateToLocal} from '@/app/lib/utils';
 import {fetchFilteredAllNews} from '@/app/lib/data';
@@ -107,6 +107,7 @@ export default async function AllNewsTable({
                   </td>
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex justify-end gap-3 text-yellow-500">
+                      <ViewsNews id={news.id} />
                       <UpdateNews id={news.id} />
                       <DeleteNews id={news.id} />
                     </div>
