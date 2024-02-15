@@ -71,7 +71,7 @@ export default function Form({ channels }: { channels: ChannelField[] }) {
                         id="content"
                         name="content"
                         placeholder="Enter content here"
-                        className="peer block w-full rounded-md border border-stone-500 py-2 pl-10 text-sm outline-2 placeholder:text-stone-400 bg-stone-700 text-white"
+                        className="peer block w-full rounded-md border border-stone-500 py-2 pl-10 text-sm outline-2 placeholder:text-stone-400 bg-stone-700 text-stone-400"
                         rows={4} // Set the number of rows for multi-line content input
                         cols={50} // Set the number of columns for multi-line content input
                     />
