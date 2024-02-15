@@ -5,7 +5,6 @@ import { ChannelField, NewsForm } from '@/app/lib/definitions';
 import {
   CheckIcon,
   ClockIcon,
-  CurrencyDollarIcon,
   UserCircleIcon,
   NewspaperIcon,
 } from '@heroicons/react/24/outline';

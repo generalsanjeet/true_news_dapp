@@ -148,6 +148,7 @@ export async function fetchNewsById(id: string) {
         all_news.id,
         all_news.channel_id,
         all_news.headline,
+        all_news.content,
         all_news.published_on_blockchain
       FROM all_news
       WHERE all_news.id = ${id};
