@@ -9,6 +9,7 @@ const FormSchema = z.object({
     id: z.string(),
     channelId: z.string(),
     headline: z.string(),
+    content: z.string(),
     published_on_blockchain: z.enum(['no', 'yes']),
     date: z.string(),
 });
@@ -17,22 +18,24 @@ const CreateNews = FormSchema.omit({id: true, date: true});
 const UpdateNews = FormSchema.omit({ id: true, date: true });
 
 export async function createNews(formData: FormData) {
-    const {channelId, headline, published_on_blockchain} = CreateNews.parse({
+    const {channelId, headline, content, published_on_blockchain} = CreateNews.parse({
         channelId: formData.get('channelId'),
         headline: formData.get('headline'),
+        content: formData.get('content'),
         published_on_blockchain: formData.get('published_on_blockchain'),
     });
     const date = new Date().toISOString().split('T')[0];
-    const content_sample_data = "this is content sample data";
+    //const content_sample_data = "this is content sample data";
 
     console.log("channel id is ", channelId);
     console.log("headline is ", headline);
+    console.log("content is ", content);
     console.log("published on blockhain is", published_on_blockchain);
 
     try {
         await sql`
             INSERT INTO all_news (channel_id, headline, content,  published_on_blockchain, date)
-            VALUES (${channelId}, ${headline}, ${content_sample_data}, ${published_on_blockchain}, ${date})
+            VALUES (${channelId}, ${headline}, ${content}, ${published_on_blockchain}, ${date})
             `;
         console.log("one row inserted");
     } catch (error) {
