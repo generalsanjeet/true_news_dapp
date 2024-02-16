@@ -1,11 +1,16 @@
 import Breadcrumbs from '@/app/ui/all-news/breadcrumbs';
-//import { fetchNewsById, fetchChannels } from '@/app/lib/data';
 import { notFound } from 'next/navigation';
+import { fetchNewsById, fetchChannelById } from '@/app/lib/data';
+import NewsView from '@/app/ui/all-news/news-view';
 
 export default async function Page({ params }: { params: { id: string } }) {
     
     const id = params.id;
-    console.log("id is ",id);
+
+    const [nViewData] = await Promise.all([
+        fetchNewsById(id),
+    ]);
+
 
     return (
         <main>
@@ -19,9 +24,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                     },
                 ]}
             />
-            <div className="h-auto  w-auto p-10 mx-auto  bg-stone-800 rounded-md shadow-md shadow-black">
-                <p className="text-white text-4xl">This page with id [${id}] is  under development.. will come soon</p> 
-            </div>
+            <NewsView newsview={nViewData}  />
         </main>
     );
 }

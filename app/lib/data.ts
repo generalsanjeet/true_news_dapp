@@ -7,6 +7,8 @@ import {
     LatestNewsRaw,
     User,
     PublishedNews,
+    Channel,
+    NewsViewType,
 } from './definitions';
 import { unstable_noStore as noStore } from 'next/cache';
 
@@ -41,6 +43,29 @@ export async function fetchLatestAllNews() {
     } catch (error) {
         console.error('Database Error:', error);
         throw new Error('Failed to fetch the latest all news.');
+    }
+}
+
+export async function fetchNewsById(id: string) {
+    noStore();
+    try {
+        const data = await sql<NewsViewType>`
+      SELECT  all_news.channel_id, channels.name, channels.email, channels.website, channels.image_url, all_news.headline, all_news.content, all_news.published_on_blockchain, all_news.date
+      FROM all_news
+      JOIN channels ON all_news.channel_id = channel_id
+      WHERE all_news.id = ${id};
+    `;
+
+        const newsViewData = data.rows.map((news) => ({
+            ...news,
+        }));
+
+        console.log("result from fetchNewsById is ", newsViewData[0]); 
+
+        return newsViewData[0];
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to fetch newsViewData.');
     }
 }
 
@@ -140,31 +165,29 @@ export async function fetchAllNewsPages(query: string) {
     }
 }
 
-export async function fetchNewsById(id: string) {
+
+export async function fetchChannelById(id: string) {
     noStore();
     try {
-        const data = await sql<NewsForm>`
+        const data = await sql<Channel>`
       SELECT
-        all_news.id,
-        all_news.channel_id,
-        all_news.headline,
-        all_news.content,
-        all_news.published_on_blockchain
-      FROM all_news
-      WHERE all_news.id = ${id};
+        id,
+        name,
+        email,
+        website,
+        image_url
+      FROM channels
+      WHERE channels.id = ${id};
     `;
 
-        const news = data.rows.map((news) => ({
-            ...news,
-            // Convert amount from cents to dollars
+        const channel = data.rows.map((channel) => ({
+            ...channel,
         }));
 
-        //console.log(invoice); // Invoice is an empty array []
-
-        return news[0];
+        return channel[0];
     } catch (error) {
         console.error('Database Error:', error);
-        throw new Error('Failed to fetch news.');
+        throw new Error('Failed to fetch channel.');
     }
 }
 

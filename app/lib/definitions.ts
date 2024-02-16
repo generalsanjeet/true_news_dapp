@@ -26,6 +26,18 @@ export type News  = {
     date: string;
 };
 
+export type NewsViewType = {
+    channel_id: string;
+    name: string;
+    email: string;
+    website: string;
+    image_url: string;
+    headline: string;
+    content: string;
+    published_on_blockchain: 'no' | 'yes';
+    date: string;
+}
+
 export type PublishedNews = {
     month: string;
     total: number;
