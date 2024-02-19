@@ -1,12 +1,12 @@
 import Form from '@/app/ui/all-news/edit-form';
 import Breadcrumbs from '@/app/ui/all-news/breadcrumbs';
-import { fetchNewsById, fetchChannels } from '@/app/lib/data';
+import { fetchChannels, fetchNewsForEditById } from '@/app/lib/data';
 import { notFound } from 'next/navigation';
 
 export default async function Page({ params }: { params: { id: string } }) {
     const id = params.id;
     const [news, channels] = await Promise.all([
-        fetchNewsById(id),
+        fetchNewsForEditById(id),
         fetchChannels(),
     ]);
 

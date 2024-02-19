@@ -27,6 +27,7 @@ export type News  = {
 };
 
 export type NewsViewType = {
+    id: string;
     channel_id: string;
     name: string;
     email: string;

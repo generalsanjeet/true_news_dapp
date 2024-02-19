@@ -69,6 +69,63 @@ export async function fetchNewsById(id: string) {
     }
 }
 
+
+export async function fetchNewsForEditById(id: string) {
+    noStore();
+    try {
+        const data = await sql<NewsForm>`
+            SELECT 
+                all_news.id,
+                all_news.channel_id,
+                all_news.headline,
+                all_news.content,
+                all_news.published_on_blockchain
+            FROM all_news
+            WHERE all_news.id = ${id};
+        `;
+
+        const news = data.rows.map((news) => ({
+        ...news,
+        }));
+
+        console.log("result from fetchForEditById is ", news); 
+
+        return news[0];
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to fetch news for edit.');
+    }
+}
+
+/*
+export async function fetchNewsForEditById(id: string) {
+    noStore();
+    try {
+        const data = await sql<NewsForm>`
+        SELECT 
+            all_news.id,
+            all_news.channel_id,
+            all_news.headline,
+            all_news.content,
+            all_news.published_on_blockchain,
+        FROM all_news
+        WHERE all_news.id = ${id};
+    `;
+
+        const news = data.rows.map((news) => ({
+            ...news,
+        }));
+
+        console.log("result from fetchForEditById is ", news); 
+
+        return news[0];
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to fetch news for edit.');
+    }
+}
+ */
+
 export async function fetchCardData() {
     noStore();
     try {
